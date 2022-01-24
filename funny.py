@@ -18,7 +18,7 @@ screen = pygame.display.set_mode([sizeX, sizeY])
 start = pygame.image.load('./textures/start.jpg')
 death = pygame.image.load('./textures/bg_dead.png')
 survive = pygame.image.load('./textures/alive.jpg')
-
+buttonBG = pygame.image.load('./textures/button-bg.png')
 
 # list in charge of chances, change freely
 dead = 'You shot yourself! Good job!'
@@ -34,6 +34,7 @@ button = pygame.Rect(810, 490, 300, 100)
 button2 = pygame.Rect(1770, 0, 150, 50)
 
 deadText = nFont.render(dead, True, (255,0,0))
+returnText = nFont.render('Return', True, (0,0,0))
 
 
 sceneS = True
@@ -47,6 +48,7 @@ while running == True:
     if sceneS == True:
         screen.blit(start, (0,0))
         ahh = pygame.draw.rect(screen, (51, 153, 255), button)
+        screen.blit(buttonBG, (810,490))
         screen.blit(text, (hSizeX - 100 , hSizeY - 20))
         
         
@@ -54,10 +56,13 @@ while running == True:
     if sceneD == True:
         screen.blit(death, (0,0))
         ahhh = pygame.draw.rect(screen, (255,0,0), button2)
+        screen.blit(returnText, (1780,8))
+
 
     if sceneA == True:
         screen.blit(survive, (0,0))
         ahhh = pygame.draw.rect(screen, (255,255,255), button2)
+        screen.blit(returnText, (1780,8))
 
         
     
